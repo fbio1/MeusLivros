@@ -7,35 +7,33 @@
     tools:context="br.ufrn.eaj.tads.meuslivros.MainActivity"
     android:id="@+id/layout"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    android:gravity="center">
 
     <Button
         android:id="@+id/novo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar Novo"
-        android:onClick="cadastrar"
-        tools:layout_editor_absoluteY="138dp"
-        tools:layout_editor_absoluteX="119dp" />
+        android:onClick="cadastrar" />
 
     <Button
         android:id="@+id/lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Listar Livros"
-        android:onClick="listar"
-        tools:layout_editor_absoluteY="232dp"
-        tools:layout_editor_absoluteX="119dp" />
+        android:onClick="listar"/>
 
     <Button
         android:id="@+id/buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buscar Livros"
-        android:onClick="buscar"
-        android:layout_marginStart="1dp"
-        tools:layout_editor_absoluteY="325dp"
-        tools:layout_editor_absoluteX="120dp" />
+        android:onClick="buscar" />
+
+    <Button
+        android:id="@+id/listar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar Livros"
+        android:onClick="listarLivros"/>
 </LinearLayout>
