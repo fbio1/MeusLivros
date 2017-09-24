@@ -56,45 +56,47 @@
         android:id="@+id/titulo"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintRight_toRightOf="@+id/autor"
         android:layout_marginTop="16dp"
-        tools:layout_constraintLeft_creator="1"
+        android:autoText="false"
+        android:ems="10"
+        android:inputType="textCapSentences"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintLeft_toLeftOf="@+id/autor"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="@+id/autor"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/autor"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="9dp"
         android:layout_marginEnd="11dp"
+        android:layout_marginStart="9dp"
+        android:ems="10"
+        android:inputType="textCapSentences"
+        app:layout_constraintLeft_toRightOf="@+id/textView2"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/textView2" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/ano"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="@+id/autor"
         app:layout_constraintRight_toRightOf="@+id/autor"
         app:layout_constraintTop_toBottomOf="@+id/autor"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/autor" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <RatingBar
         android:id="@+id/nota"

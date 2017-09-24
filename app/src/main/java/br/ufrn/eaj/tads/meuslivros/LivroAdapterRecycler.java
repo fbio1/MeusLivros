@@ -29,7 +29,7 @@ public class LivroAdapterRecycler extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.livro_item_inflater, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.livro_card_inflater, parent, false);
         LivroHolder holder = new LivroHolder(view);
         return holder;
     }
