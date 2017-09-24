@@ -8,13 +8,15 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
+import model.Livro;
 
-public class LivroAdapter extends BaseAdapter {
+
+public class LivroAdapterList extends BaseAdapter {
 
     Context context;
     List<Livro> listaLivros;
 
-    public LivroAdapter(Context context, List<Livro> listaLivros){
+    public LivroAdapterList(Context context, List<Livro> listaLivros){
         this.context = context;
         this.listaLivros = listaLivros;
     }

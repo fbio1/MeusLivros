@@ -5,7 +5,7 @@
     android:id="@+id/layout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.ufrn.eaj.tads.meuslivros.Main3Activity"
+    tools:context="br.ufrn.eaj.tads.meuslivros.ListaLivrosActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 

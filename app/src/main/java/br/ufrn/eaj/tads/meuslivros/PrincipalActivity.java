@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class PrincipalActivity extends AppCompatActivity {
     LinearLayout layout;
     private static final int OK = 1;
 
@@ -20,22 +20,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cadastrar(View v) {
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(this, CadastroActivity.class);
         startActivityForResult(intent, OK);
     }
 
     public void listar(View v) {
-        Intent intent = new Intent(this, Main3Activity.class);
+        Intent intent = new Intent(this, ListaLivrosActivity.class);
         startActivity(intent);
     }
 
-    public void buscar(View v){
-        Intent intent = new Intent(this, Main4Activity.class);
+    public void autoComplete(View v){
+        Intent intent = new Intent(this, AutoCompleteActivity.class);
         startActivity(intent);
     }
 
-    public void listarLivros(View v){
-        Intent intent = new Intent(this, Main5Activity.class);
+    public void listView(View v){
+        Intent intent = new Intent(this, ListViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void recycler(View v){
+        Intent intent = new Intent(this, RecyclerActivity.class);
         startActivity(intent);
     }
 

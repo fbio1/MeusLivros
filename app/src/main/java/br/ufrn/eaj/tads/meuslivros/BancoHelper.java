@@ -10,6 +10,9 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Livro;
+import model.LivroContrato;
+
 public class BancoHelper extends SQLiteOpenHelper {
 
     //String auxiliares
@@ -68,14 +71,12 @@ public class BancoHelper extends SQLiteOpenHelper {
     @Override
     public void  onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
         if (oldVersion != newVersion) {
-            // Execute o script para atualizar a versão...
             Log.d(TAG, "Foi detectada uma nova versão do banco, aqui deverão ser executados os scripts de downgrade.");
             db.execSQL(SQL_DROP_TABLE);
             this.onCreate(db);
         }
     }
 
-    // Insere um novo carro, ou atualiza se já existe.
     public long save(Livro livro) {
 
         long id = livro.getId();
@@ -83,17 +84,48 @@ public class BancoHelper extends SQLiteOpenHelper {
 
         try {
             ContentValues values = new ContentValues();
-            values.put(LivroContrato.LivroEntry.TITULO , livro.getTitulo());
-            values.put(LivroContrato.LivroEntry.AUTOR, livro.getAutor());
-            values.put(LivroContrato.LivroEntry.ANO , livro.getAno());
-            values.put(LivroContrato.LivroEntry.NOTA , livro.getNota());
-            // insert into carro values (...)-------------------alterei de "" para null
-            id = db.insert(LivroContrato.LivroEntry.TABLE_NAME, null, values);
-            Log.i(TAG, "Inseriu id [" + id + "] no banco.");
-            return id;
+            values.put(LivroContrato.LivroEntry.TITULO,livro.getTitulo());
+            values.put(LivroContrato.LivroEntry.AUTOR,livro.getAutor());
+            values.put(LivroContrato.LivroEntry.ANO,livro.getAno());
+            values.put(LivroContrato.LivroEntry.NOTA,livro.getNota());
+
+            if (id != 0) {
+                String selection = LivroContrato.LivroEntry._ID + "= ?";
+                String[] whereArgs = new String[]{String.valueOf(id)};
+
+                int count = db.update(LivroContrato.LivroEntry.TABLE_NAME, values, selection, whereArgs);
+                Log.i("teste", "Atualizou id [" + id + "] no banco.");
+                return count;
+
+            } else {
+                id = db.insert(LivroContrato.LivroEntry.TABLE_NAME, null, values);
+                Log.i("teste", "Inseriu id [" + id + "] no banco.");
+                return id;
+            }
         } finally {
             db.close();
         }
+    }
+
+    public int delete(Livro livro) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        int count = 0;
+        try {
+            // delete from carro where _id=?
+            String selection = LivroContrato.LivroEntry._ID + "= ?";
+            String[] whereArgs = new String[]{String.valueOf(livro.getId())};
+            count = db.delete(LivroContrato.LivroEntry.TABLE_NAME, selection, whereArgs);
+            Log.i(TAG, "Deletou " + count + " registro.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+
+        }
+        return count;
+
     }
 
     // Consulta a lista com todos os livros
@@ -143,18 +175,19 @@ public class BancoHelper extends SQLiteOpenHelper {
             String[] whereArgs = new String[]{String.valueOf(titulo)};
             Cursor c = db.query(LivroContrato.LivroEntry.TABLE_NAME, null, selection, whereArgs, null, null, null, null);
 
-            c.moveToFirst();
-            Livro livro = new Livro();
+            if (c.moveToFirst()){
+                Livro livro = new Livro();
 
-            // recupera os atributos de carro
-            livro.setId(c.getInt(c.getColumnIndex(LivroContrato.LivroEntry._ID)));
-            livro.setTitulo(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.TITULO)));
-            livro.setAutor(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.AUTOR)));
-            livro.setAno(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.ANO)));
-            livro.setNota(c.getFloat(c.getColumnIndex(LivroContrato.LivroEntry.NOTA)));
+                livro.setId(c.getInt(c.getColumnIndex(LivroContrato.LivroEntry._ID)));
+                livro.setAutor(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.AUTOR)));
+                livro.setTitulo(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.TITULO)));
+                livro.setAno(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.ANO)));
+                livro.setNota(c.getInt(c.getColumnIndex(LivroContrato.LivroEntry.NOTA)));
 
-            return livro;
-
+                return livro;
+            }else {
+                return null;
+            }
         } finally {
             db.close();
         }

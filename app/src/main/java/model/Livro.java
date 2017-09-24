@@ -1,4 +1,4 @@
-package br.ufrn.eaj.tads.meuslivros;
+package model;
 
 public class Livro {
     private long id;

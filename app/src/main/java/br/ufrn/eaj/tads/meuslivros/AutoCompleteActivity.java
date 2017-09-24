@@ -6,15 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Main4Activity extends AppCompatActivity {
+import model.Livro;
+
+public class AutoCompleteActivity extends AppCompatActivity {
     BancoHelper b = new BancoHelper(this);
     Livro lv;
     String[] livros;
@@ -45,15 +43,15 @@ public class Main4Activity extends AppCompatActivity {
             i++;
         }
 
-        AutoCompleteTextView autoCompleteFrutas = (AutoCompleteTextView) findViewById(R.id.autoComplete);
+        android.widget.AutoCompleteTextView autoCompleteFrutas = (android.widget.AutoCompleteTextView) findViewById(R.id.autoComplete);
         adaptador = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, livros);
         autoCompleteFrutas.setAdapter(adaptador);
 
         autoCompleteFrutas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Toast.makeText(MainActivity.this, ((TextView) view).getText().toString() +"item="+i+"col="+l   , Toast.LENGTH_SHORT).show();
-                Toast.makeText(Main4Activity.this, adaptador.getItem(i).toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(PrincipalActivity.this, ((TextView) view).getText().toString() +"item="+i+"col="+l   , Toast.LENGTH_SHORT).show();
+                //Toast.makeText(AutoCompleteActivity.this, adaptador.getItem(i).toString(), Toast.LENGTH_SHORT).show();
                 lv =  b.findBytitulo(adaptador.getItem(i).toString());
                 Log.i("teste", String.valueOf(lv.getId()));
                 Log.i("teste", String.valueOf(lv.getTitulo()));

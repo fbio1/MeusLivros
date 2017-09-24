@@ -4,30 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="6"
-        android:padding="5dp">
+    <LinearLayout
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="5"
+       android:orientation="vertical"
+       android:padding="4dp">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Titulo do livro escolhido"
-            android:id="@+id/titulo"
-            android:textStyle="bold" />
+           android:id="@+id/titulo"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Titulo do livro escolhido"
+           android:textStyle="bold" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Autor do livro"
-            android:id="@+id/autor"
-            android:textStyle="italic" />
-    </LinearLayout>
+           android:id="@+id/autor"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Autor do livro"
+           android:textStyle="italic" />
+   </LinearLayout>
+
     <TextView
         android:id="@+id/ano"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:text="1990"
         android:textSize="25dp"
         android:padding="5dp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="br.ufrn.eaj.tads.meuslivros.Main4Activity"
+    tools:context="br.ufrn.eaj.tads.meuslivros.AutoCompleteActivity"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 

@@ -1,4 +1,4 @@
-package br.ufrn.eaj.tads.meuslivros;
+package model;
 
 import android.provider.BaseColumns;
 
