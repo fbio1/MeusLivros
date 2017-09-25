@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 
@@ -29,6 +30,7 @@ public class RecyclerActivity extends AppCompatActivity {
     Livro livro;
     List<Livro> listaLivro = new ArrayList<>();
     BancoHelper bancoHelper = new BancoHelper(this);
+    RecyclerView recyclerView;
     Context context = this;
 
     @Override
@@ -36,7 +38,7 @@ public class RecyclerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
 
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         listaLivro = bancoHelper.findAll();
 
@@ -50,7 +52,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
             @Override
             public void OnItemClick(View view, int i) {
-//                Toast.makeText(RecyclerActivity.this, "Clique simples", Toast.LENGTH_SHORT).show();
+//              Toast.makeText(RecyclerActivity.this, "Clique simples", Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(RecyclerActivity.this,CadastroActivity.class);
                 Bundle bundle = new Bundle();
 
@@ -114,7 +116,14 @@ public class RecyclerActivity extends AppCompatActivity {
         }));
 
         recyclerView.setItemAnimator(new LandingAnimator());
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("livro","onRestart");
 
+        listaLivro = bancoHelper.findAll();
+        recyclerView.setAdapter(new SlideInLeftAnimationAdapter(new LivroAdapterRecycler(context, listaLivro)));
     }
 }

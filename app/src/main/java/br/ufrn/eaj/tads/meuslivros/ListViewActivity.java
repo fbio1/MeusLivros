@@ -48,12 +48,6 @@ public class ListViewActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("livro","onResume");
-    }
-
-    @Override
     protected void onRestart() {
         super.onRestart();
         Log.i("livro","onRestart");
