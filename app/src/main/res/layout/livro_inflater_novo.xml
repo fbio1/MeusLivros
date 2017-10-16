@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+
+        android:id="@+id/layout_normal"
+
+        android:background="@color/cardview_light_background"
+
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Titulo do livro escolhido"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/autor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autor do livro"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ano"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:text="1990"
+            android:textSize="25dp"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="1.0"
+            android:textSize="25dp"
+            android:id="@+id/nota"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center" />
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="#ff00"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:visibility="gone"
+        android:gravity="right|center_vertical"
+        android:id="@+id/layout_gone">
+
+        <Button
+            android:id="@+id/undo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desfazer"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            />
+    </LinearLayout>
+
+    <!-- quick and dirty divider -->
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal|bottom"
+        />
+
+</FrameLayout>
